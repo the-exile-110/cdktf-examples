@@ -7,7 +7,7 @@ import (
 	"github.com/hashicorp/terraform-cdk-go/cdktf"
 )
 
-func (s Stack) Ec2Stack() cdktf.TerraformStack {
+func (s *Stack) Ec2Stack() cdktf.TerraformStack {
 	modules.NewModule(s.stack).Ec2Instance("testEc2", &ec2.InstanceConfig{
 		Ami:          jsii.String("ami-2757f631"),
 		InstanceType: jsii.String("t2.micro"),

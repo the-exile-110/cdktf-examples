@@ -11,5 +11,11 @@ func (m *Module) Ec2Instance(id string, instanceConfig *ec2.InstanceConfig) ec2.
 	cdktf.NewTerraformOutput(m.scope, jsii.String("public_ip"), &cdktf.TerraformOutputConfig{
 		Value: instance.PublicIp(),
 	})
+
 	return instance
+}
+
+func (m *Module) Eip(id string, eipConfig *ec2.EipConfig) ec2.Eip {
+	eip := ec2.NewEip(m.scope, jsii.String(id), eipConfig)
+	return eip
 }
