@@ -8,7 +8,7 @@ import (
 func main() {
 	app := cdktf.NewApp(nil)
 
-	stacks.NewStack(app, "ec2Stack", "ec2/aws_instance.state").Ec2Stack()
+	stacks.NewStack(app, "ec2Stack", "ec2/ec2.tfstate").Ec2Stack()
 
 	app.Synth()
 }

@@ -14,9 +14,7 @@ type Stack struct {
 
 func NewStack(scope constructs.Construct, id string, stateKey string) *Stack {
 	stack := cdktf.NewTerraformStack(scope, &id)
-	aws.NewAwsProvider(stack, jsii.String("AWS"), &aws.AwsProviderConfig{
-		Region: jsii.String(config.Region),
-	})
+	aws.NewAwsProvider(stack, jsii.String("AWS"), config.AwsProviderConfig)
 	cdktf.NewS3Backend(stack, &cdktf.S3BackendProps{
 		Region: jsii.String(config.Region),
 		Bucket: jsii.String(config.BackendBucket),
